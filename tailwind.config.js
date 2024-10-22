@@ -7,6 +7,9 @@ export default {
         primary: "#134550", // Add your custom color here
         white_bg: "#D9D9D9", // Add your custom color here
       },
+      fontFamily: {
+        poppins: ['Poppins', 'sans-serif'],
+      },
     },
   },
   plugins: [],
