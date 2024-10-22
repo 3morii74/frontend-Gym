@@ -4,7 +4,7 @@ import Signup from './component/Signup';
 
 import Dashboard from './component/Dashboard';
 import PrivateRoute from './auth/PrivateRoute';
-import Welcome from './component/Welcome';
+import Welcome from './pages/Welcome';
 
 function App() {
   return (
