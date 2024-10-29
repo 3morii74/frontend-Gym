@@ -72,7 +72,7 @@ const Signup = () => {
         // Log the response to the console
         Cookies.set("token", response.data.data.token, { expires: 7 });
 
-        // navigate("/");
+        navigate("/");
       } catch (error) {
         console.log(error);
         if (error.response && error.response.data) {
