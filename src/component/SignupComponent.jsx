@@ -70,7 +70,7 @@ const Signup = () => {
           status: "active",
         });
         // Log the response to the console
-        Cookies.set("token", response.data.data.token, { expires: 7 });
+        Cookies.set("access_token", response.data.data.token, { expires: 7 });
 
         navigate("/");
       } catch (error) {
