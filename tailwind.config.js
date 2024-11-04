@@ -8,7 +8,8 @@ export default {
         white_bg: "#D9D9D9", // Add your custom color here
       },
       fontFamily: {
-        poppins: ['Poppins', 'sans-serif'],
+        poppins: ["Poppins", "sans-serif"],
+        sans: ["Montserrat", "sans-serif"],
       },
     },
   },

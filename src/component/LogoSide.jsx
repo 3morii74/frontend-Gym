@@ -12,7 +12,7 @@ const LogoSide = () => {
 
         {/* Slogan */}
         <div className='relative flex justify-start items-end'>
-          <p className='font-Inter text-sm md:text-sm lg:text-xl xl:text-2xl 2xl:text-3xl tracking-[0.15em] text-white_bg text-center mb-2'>
+          <p className='font-poppins text-sm md:text-sm lg:text-xl xl:text-2xl 2xl:text-3xl tracking-[0.15em] text-white_bg text-center mb-2'>
             Unleash Your Strength With LVHI
           </p>
           <img src={Slug} alt="Slug" className="absolute h-8 lg:h-11 xl:h-12 2xl:h-18 md:left-[265px] lg:left-[375px] xl:left-[450px] 2xl:left-[576px]" />

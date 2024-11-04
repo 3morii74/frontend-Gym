@@ -1,7 +1,22 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* In your CSS file */
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
 
 .font-poppins {
-    font-family: 'Poppins', sans-serif;
-  }
+  font-family: 'Poppins', sans-serif;
+}
+
+.font-audiowide {
+  font-family: 'Audiowide';
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, #ff6a00, #ee0979);
+  /* Change colors as needed */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  /* Adjust shadow as needed */
+}
