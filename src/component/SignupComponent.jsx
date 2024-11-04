@@ -39,7 +39,7 @@ const Signup = () => {
     return {
       isValid: Object.keys(newErrors).length === 0, // returns true if no errors
       errors: newErrors,
-    };// returns true if no errors
+    }; // returns true if no errors
   };
 
   const handleNextStep = (e) => {
@@ -57,18 +57,21 @@ const Signup = () => {
 
     if (validation.isValid) {
       try {
-        const response = await axios.post("https://api-lvhi.amrnabih.com/api/auth/register", {
-          first_name,  // Map state variables to API expected keys
-          last_name,
-          slug,
-          email,
-          password,
-          password_confirmation,
-          phone,
-          birth_date,   // Map birth_date to API expected key
-          gender,
-          status: "active",
-        });
+        const response = await axios.post(
+          "https://api-lvhi.amrnabih.com/api/auth/register",
+          {
+            first_name, // Map state variables to API expected keys
+            last_name,
+            slug,
+            email,
+            password,
+            password_confirmation,
+            phone,
+            birth_date, // Map birth_date to API expected key
+            gender,
+            status: "active",
+          }
+        );
         // Log the response to the console
         Cookies.set("access_token", response.data.data.token, { expires: 7 });
 
@@ -108,7 +111,7 @@ const Signup = () => {
           Join the LVH<span className="text-[#2c8c99]">I</span> Movement
         </h2>
 
-        <div className="mt-[30px] lg:mt-[30px] xl:mt-[50px] 2xl:mt-[100px] w-full space-y-4 lg:space-y-7">
+        <div className="mt-[30px] lg:mt-[30px] xl:mt-[50px] 2xl:mt-[40px] w-full space-y-4 lg:space-y-7">
           {step === 1 && (
             <>
               {/* First Name */}
@@ -309,8 +312,8 @@ const Signup = () => {
               </div>
 
               {/* Gender */}
-              <div className=" mx-[50px] lg:mx-[80px] xl:mx-[120px] 2xl:mx-[190px]">
-                <label className="2xl:text-2xl">Gender</label>
+              <fieldset className="mx-[50px] lg:mx-[80px] xl:mx-[120px] 2xl:mx-[190px]">
+                <legend className="2xl:text-2xl">Gender</legend>
                 <div className="flex space-x-6 mt-4">
                   <label className="flex items-center">
                     <input
@@ -340,14 +343,18 @@ const Signup = () => {
                     {errors.gender}
                   </span>
                 )}
-              </div>
+              </fieldset>
 
               {/* Back and Signup Buttons */}
               <div className="lg:flex justify-between space-y-5 lg:space-y-0  mx-[50px] lg:mx-[80px] xl:mx-[120px] 2xl:mx-[190px]">
                 <button
                   type="button"
                   onClick={() => setStep(1)} // Go back to Step 1
-                  className={`w-full ${Object.keys(errors).length > 0 ? "bg-red-500" : "bg-[#2c8c99]"} text-white  py-2 2xl:text-2xl 2xl:py-3 rounded-full mr-4`}
+                  className={`w-full ${
+                    Object.keys(errors).length > 0
+                      ? "bg-red-500"
+                      : "bg-[#2c8c99]"
+                  } text-white  py-2 2xl:text-2xl 2xl:py-3 rounded-full mr-4`}
                 >
                   Back
                 </button>

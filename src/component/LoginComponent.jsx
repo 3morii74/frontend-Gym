@@ -21,7 +21,7 @@ const Login = () => {
     return {
       isValid: Object.keys(newErrors).length === 0, // returns true if no errors
       errors: newErrors,
-    };// returns true if no errors
+    }; // returns true if no errors
   };
 
   const handleSignup = async (e) => {
@@ -30,14 +30,19 @@ const Login = () => {
 
     if (validation.isValid) {
       try {
-        const response = await axios.post("https://api-lvhi.amrnabih.com/api/auth/login", {
-          email,
-          password,
-          stay_logged_in,
-        });
+        const response = await axios.post(
+          "https://api-lvhi.amrnabih.com/api/auth/login",
+          {
+            email,
+            password,
+            stay_logged_in,
+          }
+        );
         console.log(response);
         // Log the response to the console
-        Cookies.set("access_token", response.data.data.access_token, { expires: 7 });
+        Cookies.set("access_token", response.data.data.access_token, {
+          expires: 7,
+        });
 
         navigate("/");
       } catch (error) {
@@ -70,13 +75,13 @@ const Login = () => {
       </Link>
       <form
         onSubmit={handleSignup}
-        className="text-primary w-full flex flex-col justify-center items-center font-poppins"
+        className="text-primary w-full h-2/4 flex flex-col justify-center items-center font-poppins"
       >
-        <h2 className="font-poppins text-xl lg:text-2xl xl:text-3xl 2xl:text-5xl mb-4">
-          Join the LVH<span className="text-[#2c8c99]">I</span> Movement
+        <h2 className="font-poppins text-2xl md:text-lg lg:text-xl xl:text-3xl 2xl:text-5xl mb-4">
+          Rise & Shine: Log In for Gains!
         </h2>
 
-        <div className=" mt-[30px] lg:mt-[30px] xl:mt-[50px] 2xl:mt-[100px] w-full space-y-8 lg:space-y-7">
+        <div className=" mt-[30px] lg:mt-[30px] xl:mt-[50px] 2xl:mt-[60px] w-full space-y-8 lg:space-y-7">
           <div>
             {/* Email */}
             <div className=" mx-[50px] lg:mx-[80px] xl:mx-[120px] 2xl:mx-[190px]">
@@ -124,11 +129,10 @@ const Login = () => {
               )}
               <label className="flex items-center">
                 <input
-                  type="radio"
+                  type="checkbox"
                   name="stay-log-in"
-                  value="true" // The value can be kept as a string
-                  checked={stay_logged_in} // Use state to determine if checked
-                  onChange={(e) => setStay_logged_in(e.target.value)} // Update state based on checked value
+                  checked={stay_logged_in}
+                  onChange={() => setStay_logged_in(!stay_logged_in)} // Toggle the value
                   className="mr-2"
                 />
                 Stay logged in
