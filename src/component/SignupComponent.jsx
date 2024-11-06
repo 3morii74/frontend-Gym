@@ -100,7 +100,7 @@ const Signup = () => {
         <img
           src={BackArrow}
           alt="BackArrow"
-          className="w-9 lg:w-11 xl:w-16 2xl:w-20"
+          className="w-9 lg:w-11 xl:w-11 2xl:w-11"
         />
       </Link>
       <form
@@ -111,7 +111,7 @@ const Signup = () => {
           Join the LVH<span className="text-[#2c8c99]">I</span> Movement
         </h2>
 
-        <div className="mt-[30px] lg:mt-[30px] xl:mt-[50px] 2xl:mt-[40px] w-full space-y-4 lg:space-y-7">
+        <div className="mt-[30px] lg:mt-[30px] xl:mt-[20px] 2xl:mt-[20px] w-full space-y-2 lg:space-y-4 ">
           {step === 1 && (
             <>
               {/* First Name */}
@@ -350,11 +350,10 @@ const Signup = () => {
                 <button
                   type="button"
                   onClick={() => setStep(1)} // Go back to Step 1
-                  className={`w-full ${
-                    Object.keys(errors).length > 0
-                      ? "bg-red-500"
-                      : "bg-[#2c8c99]"
-                  } text-white  py-2 2xl:text-2xl 2xl:py-3 rounded-full mr-4`}
+                  className={`w-full ${Object.keys(errors).length > 0
+                    ? "bg-red-500"
+                    : "bg-[#2c8c99]"
+                    } text-white  py-2 2xl:text-2xl 2xl:py-3 rounded-full mr-4`}
                 >
                   Back
                 </button>
