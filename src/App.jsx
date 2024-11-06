@@ -1,7 +1,8 @@
 import { Routes, Route, useLocation } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import Verification from './pages/verification';
 import Main from './pages/Main';
 import PrivateRoute from './auth/PrivateRoute';
 import Welcome from './pages/Welcome';
@@ -27,12 +28,24 @@ function App() {
         <Route path="/welcome" element={<Welcome />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+
+        {/* Protected Routes */}
+        <Route
+          path="/verification"
+          element={
+            <PrivateRoute>
+              <Verification />
+            </PrivateRoute>
+          }
+        />
         <Route
           path="/"
           element={
             <PrivateRoute>
-              <NavBar backgroundColor={navColor} />
-              <Main />
+              <React.Fragment>
+                <NavBar backgroundColor={navColor} />
+                <Main />
+              </React.Fragment>
             </PrivateRoute>
           }
         />
