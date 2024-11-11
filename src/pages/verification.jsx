@@ -1,6 +1,13 @@
 import { useRef } from 'react';
-function verification() {
-  const inputs = useRef(new Array(4).fill(null));
+import { useLocation, Navigate } from 'react-router-dom';
+function Verification() {
+  const location = useLocation();
+
+  const inputs = useRef(new Array(6).fill(null));
+  // Check if the route was accessed through internal navigation
+  if (!location.state?.fromInternalNavigation) {
+    return <Navigate to="/" replace />; // Redirect to home if accessed directly
+  }
 
   const handleKeyDown = (e, index) => {
     if (!/^[0-9]$/.test(e.key) && e.key !== 'Backspace' && e.key !== 'Delete' && e.key !== 'Tab' && !e.metaKey) {
@@ -49,11 +56,11 @@ function verification() {
       <div className=" text-center bg-white px-4 sm:px-8 py-10 rounded-xl shadow">
         <header className="mb-8">
           <h1 className="text-2xl font-bold mb-1">Email Verification</h1>
-          <p className="text-[15px] text-slate-500">Enter the 4-digit verification code that was sent to your Email.</p>
+          <p className="text-[15px] text-slate-500">Enter the 6-digit verification code that was sent to your Email.</p>
         </header>
         <form onSubmit={handleSubmit}>
           <div className="flex items-center justify-center gap-3">
-            {Array.from({ length: 4 }).map((_, idx) => (
+            {Array.from({ length: 6 }).map((_, idx) => (
               <input
                 key={idx}
                 ref={(el) => inputs.current[idx] = el}
@@ -74,11 +81,11 @@ function verification() {
             </button>
           </div>
         </form>
-        <div className="text-sm text-slate-500 mt-4">Didn't receive code? <a className="font-medium text-primary hover:text-indigo-600" href="#0">Resend</a></div>
+        <div className="text-sm text-slate-500 mt-4">Didn&apos;t receive code? <a className="font-medium text-primary hover:text-indigo-600" href="#0">Resend</a></div>
       </div>
     </div>
 
   );
 }
 
-export default verification
+export default Verification

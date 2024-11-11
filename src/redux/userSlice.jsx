@@ -4,7 +4,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
     userData: null,
-    token: localStorage.getItem('token') || null, // Keep token from localStorage if available
+    token: localStorage.getItem('token') || null,
+    verification: false
 };
 
 const userSlice = createSlice({
@@ -17,9 +18,12 @@ const userSlice = createSlice({
         setToken: (state, action) => {
             state.token = action.payload;
         },
+        setVerification: (state, action) => {
+            state.verification = action.payload;
+        },
     },
 });
 
-export const { setUserData, setToken } = userSlice.actions;
+export const { setUserData, setToken, setVerification } = userSlice.actions;
 
 export default userSlice.reducer;

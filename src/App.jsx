@@ -33,9 +33,7 @@ function App() {
         <Route
           path="/verification"
           element={
-            <PrivateRoute>
               <Verification />
-            </PrivateRoute>
           }
         />
         <Route
