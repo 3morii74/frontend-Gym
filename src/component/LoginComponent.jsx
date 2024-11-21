@@ -32,7 +32,6 @@ const Login = () => {
 
     if (validation.isValid) {
       const result = await login({ email, password, stay_logged_in });
-      console.log("result", result);
       if (result instanceof Error) {
         // Handle the error here
         if (result.response) {

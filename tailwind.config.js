@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         primary: "#134550", // Add your custom color here
+        hover: "#2B9DB6", // Add your custom color here
         white_bg: "#D9D9D9", // Add your custom color here
       },
       fontFamily: {

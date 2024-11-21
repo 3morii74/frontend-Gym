@@ -1,11 +1,11 @@
 // src/redux/userSlice.js
-
 import { createSlice } from '@reduxjs/toolkit';
+import Cookies from 'js-cookie'; // Import js-cookie
 
 const initialState = {
     userData: null,
-    token: localStorage.getItem('token') || null,
-    verification: false
+    token: Cookies.get('access_token') || null, // Initialize from cookies
+    verification: Cookies.get('verification_status') === 'true', // Convert string to boolean
 };
 
 const userSlice = createSlice({

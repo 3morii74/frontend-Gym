@@ -7,7 +7,7 @@ import Main from './pages/Main';
 import PrivateRoute from './auth/PrivateRoute';
 import Welcome from './pages/Welcome';
 import NavBar from './component/NavBar';
-
+import AppInitializer from './auth/AppInitializer';
 function App() {
   const [navColor, setNavColor] = useState('transparent');
   const location = useLocation();
@@ -24,30 +24,34 @@ function App() {
 
   return (
     <>
-      <Routes>
-        <Route path="/welcome" element={<Welcome />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+      <AppInitializer>
+        <div className="min-h-screen">
+          <Routes>
+            <Route path="/welcome" element={<Welcome />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
 
-        {/* Protected Routes */}
-        <Route
-          path="/verification"
-          element={
-              <Verification />
-          }
-        />
-        <Route
-          path="/"
-          element={
-            <PrivateRoute>
-              <React.Fragment>
-                <NavBar backgroundColor={navColor} />
-                <Main />
-              </React.Fragment>
-            </PrivateRoute>
-          }
-        />
-      </Routes>
+            {/* Protected Routes */}
+            <Route
+              path="/verification"
+              element={
+                <Verification />
+              }
+            />
+            <Route
+              path="/"
+              element={
+                <PrivateRoute>
+                  <React.Fragment>
+                    <NavBar backgroundColor={navColor} />
+                    <Main />
+                  </React.Fragment>
+                </PrivateRoute>
+              }
+            />
+          </Routes>
+        </div>
+      </AppInitializer>
     </>
   );
 }
