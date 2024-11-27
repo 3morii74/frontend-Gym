@@ -11,6 +11,8 @@ export default {
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
         sans: ["Montserrat", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
+        name: ["Alike", "sans-serif"],
       },
     },
   },

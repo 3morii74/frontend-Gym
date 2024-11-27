@@ -4,7 +4,7 @@ function Main() {
         <>
             <div className="bg-primary w-screen h-screen pt-10">
                 <div className="">
-                    masdasd
+                    {/* masdasd */}
                 </div>
             </div>
         </>

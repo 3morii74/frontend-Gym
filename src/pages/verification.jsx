@@ -35,6 +35,7 @@ function Verification() {
   };
 
   const handleInput = (e, index) => {
+    console.log('input', inputs.current.map((input) => input.value).join(''));
     if (e.target.value) {
       if (index < inputs.current.length - 1) {
         inputs.current[index + 1].focus();
@@ -100,7 +101,7 @@ function Verification() {
 
   return (
     <div className="h-screen w-screen flex justify-center items-center">
-      <div className="text-center bg-white px-4 sm:px-8 py-10 rounded-xl shadow-xl">
+      <div className="text-center bg-white px-4 sm:px-8 py-10 rounded-xl md:shadow-xl ">
         <header className="mb-8">
           <h1 className="text-2xl font-bold mb-1">Email Verification</h1>
           <p className="text-[15px] text-slate-500">
@@ -114,7 +115,7 @@ function Verification() {
                 key={idx}
                 ref={(el) => (inputs.current[idx] = el)}
                 type="text"
-                className="w-8 h-8 md:w-14 md:h-14 text-center text-sm md:text-2xl font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded p-4 outline-none focus:bg-white focus:border-hover focus:ring-2 focus:ring-indigo-100"
+                className="w-10 h-10 md:w-14 md:h-14 text-center text-lg md:text-2xl font-extrabold text-slate-900 bg-slate-100 border border-transparent hover:border-slate-200 appearance-none rounded md:p-4 outline-none focus:bg-white focus:border-hover focus:ring-2 focus:ring-indigo-100"
                 maxLength="1"
                 onKeyDown={(e) => handleKeyDown(e, idx)}
                 onInput={(e) => handleInput(e, idx)}
